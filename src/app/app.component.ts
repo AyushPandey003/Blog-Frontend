@@ -14,7 +14,7 @@ import {MatChipsModule} from '@angular/material/chips';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet, MatSlideToggleModule,MatToolbarModule,MatIconModule,RouterLink,RouterLinkActive,RouterOutlet, MatButtonModule,MatSnackBarModule,MatCardModule,MatFormFieldModule,MatInputModule,MatAutocompleteModule,MatChipsModule],
+  imports: [CommonModule,RouterOutlet, MatSlideToggleModule,MatToolbarModule,MatIconModule,RouterLink,RouterLinkActive,RouterOutlet, MatButtonModule,MatSnackBarModule,MatCardModule,MatFormFieldModule,MatInputModule,MatAutocompleteModule,MatChipsModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 }

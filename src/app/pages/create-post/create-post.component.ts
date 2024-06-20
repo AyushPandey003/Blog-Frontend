@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // For Reacti
 import { CommonModule } from '@angular/common'; // For *ngFor
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PostService } from '../../service/post.service';
 @Component({
   selector: 'app-create-post',
   standalone: true,
@@ -31,6 +32,7 @@ export class CreatePostComponent {
   constructor(private fb:FormBuilder,
     private router:Router,
     private snackBar:MatSnackBar,
+    private postService:PostService,
   ) { }
   ngOnInit(){
     this.postForm = this.fb.group({
@@ -52,6 +54,18 @@ export class CreatePostComponent {
     if(index >= 0){
       this.tags.splice(index,1);
     }
+  }
+  createPost(){
+    const data=this.postForm.value;
+    data.tags=this.tags;
+
+    this.postService.createNewPost(data).subscribe(res=>{
+      this.snackBar.open("Post Created Successfully !!!","Ok");
+      this.router.navigateByUrl("/");
+    },
+  error=>{
+    this.snackBar.open("Something Went Wrong !!!","Ok")
+  })
   }
 
 }

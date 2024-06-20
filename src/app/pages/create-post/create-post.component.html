@@ -34,7 +34,7 @@
                                     [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="add($event)"/>
                         </mat-chip-grid>
                 </mat-form-field>
-                <button mat-raised-button color="primary" style="float:right;" [disabled]="!postForm.valid">
+                <button mat-raised-button (click)="createPost()" color="primary" style="float:right;" [disabled]="!postForm.valid">
                     Create New Post
                 </button>
             </form>
