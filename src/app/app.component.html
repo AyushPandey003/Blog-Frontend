@@ -1,9 +1,17 @@
-<div 
-style="display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-">
-Hello World
-<mat-slide-toggle> toggle me</mat-slide-toggle>
-</div>
+<mat-toolbar class="example-toolbar">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" style="background-color: #1976d2;">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="nav-span"> My App </span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button class="Create-Post-Button" color="primary" routerLink="/create-post" routerLinkActive="active" ariaCurrentWhenActive="page">
+    Create New Post
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
