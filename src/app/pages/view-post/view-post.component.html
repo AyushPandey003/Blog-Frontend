@@ -16,7 +16,7 @@
             </mat-chip>
         </mat-chip-set>
             <mat-card-actions>
-               <button mat-raised-button color="primary">
+               <button mat-raised-button color="primary" (click)="likePost()">
                     {{postData.likeCount}}
                     <mat-icon>thumb_up</mat-icon>
                 </button>
@@ -28,4 +28,38 @@
                </button>
             </mat-card-actions>
     </mat-card>
+    <mat-card class="comment-card">
+        <h4>Publish Your Comment</h4>
+        <div>
+            <form [formGroup]="commentForm">
+                <mat-form-field appearance="fill">
+                  <mat-label>Content</mat-label>
+                  <textarea matInput formControlName="content" ></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Commented By</mat-label>
+                  <input matInput formControlName="postedBy">
+                </mat-form-field>
+                <button mat-raised-button color="primary " (click)="publishComment()" style="float:right;" [disabled]="!commentForm.valid">Add Comment</button>
+            </form>
+        </div>
+    </mat-card>
+
+    <div style="margin-top:10px;">
+        <h4>
+            Comments
+        </h4>
+        <mat-card style="margin-top:10px;" *ngFor="let comment of comments">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ comment.postedBy }}</mat-card-title>
+                <mat-card-subtitle>Created At:{{comment.createdAt |date:"medium"}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                {{ comment.content }}
+            </mat-card-content>
+
+        </mat-card>
+    </div>
 </div>
