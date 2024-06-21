@@ -22,7 +22,7 @@ import { PostService } from '../../service/post.service';
     MatInputModule,
     FormsModule, 
     ReactiveFormsModule,
-    CommonModule],
+    CommonModule,],
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.scss'
 })

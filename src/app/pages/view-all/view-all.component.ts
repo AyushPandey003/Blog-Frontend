@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-view-all',
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     FormsModule, 
     ReactiveFormsModule,
+    RouterLink,
     CommonModule],
   templateUrl: './view-all.component.html',
   styleUrl: './view-all.component.scss'
@@ -38,7 +40,6 @@ export class ViewAllComponent {
 
   getAllPosts(){
     this.postService.getAllPosts().subscribe(res=>{
-      console.log(res);
       this.allPosts=res;
     },
   error=>{
